@@ -1,7 +1,8 @@
-package com.magic.Owners
+package com.magic.Owners.presentation.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.magic.Owners.R
 
 class MainActivity : AppCompatActivity() {
 
