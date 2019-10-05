@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/feedFragment"
+            android:icon="@drawable/feed_icon"
+            tools:ignore="MenuTitle" />
+    <item android:id="@+id/createPostFragment"
+            android:icon="@drawable/create_post"
+            tools:ignore="MenuTitle" />
+    <item android:id="@+id/servicesFragment"
+            android:icon="@drawable/services_icon"
+            tools:ignore="MenuTitle" />
+
+</menu>
