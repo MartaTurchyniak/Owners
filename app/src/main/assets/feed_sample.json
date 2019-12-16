@@ -1,0 +1,9 @@
+{
+  "post_id": "id",
+  "username": "Sofia Gorlata",
+  "avatar_url": "http://...",
+  "title": "title",
+  "description": "descr",
+  "time_added": "datetime",
+  "tag": "some of tags"(optional)
+}

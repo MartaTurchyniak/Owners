@@ -27,6 +27,7 @@
                 android:textColor="@color/app_theme" />
 
         <ImageView
+                android:id="@+id/profile"
                 android:layout_width="@dimen/navigation_icons_size"
                 android:layout_height="@dimen/navigation_icons_size"
                 android:layout_alignParentEnd="true"

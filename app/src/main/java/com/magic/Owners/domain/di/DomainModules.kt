@@ -1,6 +1,5 @@
 package com.magic.Owners.domain.di
 
-import com.magic.Owners.domain.use_cases.CreatePostUseCase
 import com.magic.Owners.domain.use_cases.impl.SimpleCreatePostUseCase
 import org.koin.dsl.module
 
@@ -9,6 +8,5 @@ import org.koin.dsl.module
  */
 
 val useCasesModule = module{
-
     single{ SimpleCreatePostUseCase(get()) }
 }

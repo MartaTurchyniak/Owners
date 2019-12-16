@@ -12,5 +12,4 @@ class SimpleCreatePostUseCase(private val createPostCall: CreatePostCall) : Crea
     override fun create(call: CreatePostCall): CreatePostModel {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
 }

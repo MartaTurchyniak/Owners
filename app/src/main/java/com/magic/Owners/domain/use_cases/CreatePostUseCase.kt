@@ -6,7 +6,7 @@ import com.magic.Owners.domain.models.CreatePostModel
 /**
  * Created by Marta Turchyniak on 10/5/19.
  */
-interface CreatePostUseCase{
+interface CreatePostUseCase {
 
     fun create(call: CreatePostCall): CreatePostModel
 }

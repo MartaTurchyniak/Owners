@@ -1,0 +1,153 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.ui.profile.ProfileActivity">
+
+    <include
+            android:id="@+id/toolbar"
+            layout="@layout/profile_toolbar" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="40dp"
+            android:src="@color/cardview_dark_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/addProfilePicture"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:padding="6dp"
+            android:layout_marginTop="130dp"
+            android:background="@drawable/add_profile_bg"
+            android:src="@drawable/ic_camera_alt_white"
+            app:layout_constraintEnd_toEndOf="@id/profile"
+            app:layout_constraintTop_toBottomOf="@id/toolbar" />
+
+    <ImageView
+        android:id="@+id/ivEmail"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="24dp"
+        android:src="@drawable/ic_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addProfilePicture" />
+
+    <ImageView
+            android:id="@+id/ivEditMail"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_edit_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/addProfilePicture" />
+
+    <TextView
+            android:id="@+id/tvEmailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/ivEmail"
+            app:layout_constraintTop_toBottomOf="@id/addProfilePicture"
+            android:text="Email"/>
+
+    <EditText
+            android:id="@+id/tvEmailDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:layout_marginStart="10dp"
+            android:textSize="13sp"
+            android:background="@android:color/transparent"
+            android:enabled="false"
+            android:text="martaturchyniak@gmail.com"
+            app:layout_constraintTop_toBottomOf="@id/tvEmailTitle"
+            app:layout_constraintStart_toEndOf="@id/ivEmail"/>
+
+    <ImageView
+            android:id="@+id/ivName"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_person_profile"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivEmail" />
+
+    <ImageView
+            android:id="@+id/ivEditName"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_edit_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivEmail"/>
+
+    <TextView
+            android:id="@+id/tvNameTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/ivName"
+            app:layout_constraintTop_toBottomOf="@id/ivEmail"
+            android:text="Name"/>
+
+    <EditText
+            android:id="@+id/tvTitleDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:layout_marginStart="10dp"
+            android:inputType="none"
+            android:textSize="13sp"
+            android:background="@android:color/transparent"
+            android:text="Marta Turchyniak"
+            android:enabled="false"
+            app:layout_constraintTop_toBottomOf="@id/tvNameTitle"
+            app:layout_constraintStart_toEndOf="@id/ivName"/>
+
+    <ImageView
+            android:id="@+id/ivPhone"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/ic_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivName" />
+
+    <TextView
+            android:id="@+id/tvPhoneTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@id/ivPhone"
+            app:layout_constraintTop_toBottomOf="@id/ivName"
+            android:text="Phone"/>
+
+    <TextView
+            android:id="@+id/tvPhoneDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="italic"
+            android:layout_marginStart="10dp"
+            android:text="+380964267479"
+            app:layout_constraintTop_toBottomOf="@id/tvPhoneTitle"
+            app:layout_constraintStart_toEndOf="@id/ivPhone"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,8 @@
 package com.magic.Owners.data.di
 
+import com.google.gson.FieldNamingPolicy
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.magic.Owners.BuildConfig
 import com.magic.Owners.data.api_clients.CreatePostApiClient
 import com.magic.Owners.data.interceptors.HeadersInterceptor
@@ -21,6 +24,7 @@ val networkModule = module {
     single { provideDefaultOkhttpClient(get()) }
     single { provideRetrofit(get()) }
     single { provideCreatePostApiClient(get()) }
+    single { provideGson() }
 
 }
 
@@ -39,4 +43,11 @@ fun provideRetrofit(client: OkHttpClient): Retrofit {
         .build()
 }
 
-fun provideCreatePostApiClient(retrofit: Retrofit): CreatePostApiClient = retrofit.create(CreatePostApiClient::class.java)
+fun provideGson(): Gson {
+    return GsonBuilder()
+        .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+        .create()
+}
+
+fun provideCreatePostApiClient(retrofit: Retrofit): CreatePostApiClient =
+    retrofit.create(CreatePostApiClient::class.java)

@@ -1,6 +1,8 @@
 package com.magic.Owners.presentation.di
 
-import org.koin.core.module.Module
+import com.magic.Owners.domain.use_cases.impl.SimpleGetAllServicesUseCase
+import com.magic.Owners.presentation.ui.services.ServicesViewModel
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -8,5 +10,5 @@ import org.koin.dsl.module
  */
 
 val presentationModule = module{
-    single {  }
+   viewModel { ServicesViewModel(SimpleGetAllServicesUseCase(get())) }
 }
