@@ -16,4 +16,8 @@
             android:id="@+id/mainActivity"
             android:name="com.magic.Owners.presentation.ui.MainActivity"
             android:label="MainActivity" />
+
+    <fragment  android:id="@+id/signUpFragment"
+            android:name="com.magic.Owners.presentation.ui.sign_in.SignUpFragment"
+            android:label="SignUpFragment"/>
 </navigation>

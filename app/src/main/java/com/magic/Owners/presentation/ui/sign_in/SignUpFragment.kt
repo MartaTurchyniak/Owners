@@ -7,19 +7,20 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.magic.Owners.R
-import kotlinx.android.synthetic.main.login_frg.*
+import kotlinx.android.synthetic.main.login_frg.btnSignin
+import kotlinx.android.synthetic.main.sign_up_frg.*
 
 /**
- * Created by Marta Turchyniak on 2019-12-01.
+ * Created by Marta Turchyniak on 2019-12-16.
  */
-class SignInFragment : Fragment(){
+class SignUpFragment: Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return inflater.inflate(R.layout.login_frg, container, false)
+        return inflater.inflate(R.layout.sign_up_frg, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -27,8 +28,8 @@ class SignInFragment : Fragment(){
         btnSignin.setOnClickListener {
             it.findNavController().navigate(R.id.mainActivity)
         }
-        navigate_signup.setOnClickListener {
-            it.findNavController().navigate(R.id.signUpFragment)
+        navigate_signin.setOnClickListener {
+            it.findNavController().navigate(R.id.signInFragment)
         }
     }
 }
