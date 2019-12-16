@@ -1,0 +1,70 @@
+{
+  "services": [
+    {
+      "id": "1",
+      "tag": "head",
+      "service_photo_id": "head",
+      "photo": "osbb_img",
+      "title": "Head",
+      "description": "Hi! I`m a lead of our organization. I`ll try to help you to solve some problems related to our house. Please, call me from 10AM till 6PM every day, to check some information you need",
+      "phone": "+3802345324",
+      "email": "head@gmail.com",
+      "website": ""
+    },
+    {
+      "id": "2",
+      "tag": "cleaner",
+      "service_photo_id": "cleaner",
+      "photo": "cleaning_img",
+      "title": "Cleaner",
+      "description": "In Ukraine these services are just emerging and are becoming quite popular. In addition to our presence, today there are several other companies that have been established in Lviv and are offering their professional services. In spite of the novelty, housekeeping services are becoming more accessible not only to successful businesses, but also to everyday citizens who want to free up their precious time from domestic chores and still enjoy a tidy and orderly environment in their homes and offices.",
+      "phone": "(097) 431 28 05\n(032) 233 51 04\n",
+      "email": "proficlean.13@gmail.com",
+      "website": "http://roxan-cleaning.com/en/"
+    },
+    {
+      "id": "3",
+      "tag": "plumber",
+      "service_photo_id": "plumber",
+      "photo": "plumber_img",
+      "title": "Plumber",
+      "description": "When you have a plumbing issue that needs professional attention, look no further than Handy. No matter how skilled you might be at home maintenance, some jobs should only ever be tackled by a professional, and plumbing is one of them. When you book plumbers through the Handy platform, you'll be booking a cheap but reliable plumbing professional who will know just where to look to find the source of the problem and who will have all the right tools and expertise to fix it.",
+      "phone": "+3802648263",
+      "email": "plumb@gmail.com",
+      "website": "https://www.handy.com/services/other-plumbing"
+    },
+    {
+      "id": "4",
+      "tag": "electrician",
+      "service_photo_id": "electrician",
+      "photo": "electrician_img",
+      "title": "Electrician",
+      "description": "Are you looking for the best electrician in your area? Handy has you covered. Some jobs should only be undertaken by a professional, and we know you’d rather not fiddle with your electrical wiring or outlets unless you know exactly what you’re doing. When you use the Handy platform to book a professional electrical contractor, you can take all your stress out of the equation. Why run the risk of making an electrical problem even more complicated when you can book a professional electrician to take care of those faulty outlets or run a wire to that new lighting fixture?",
+      "phone": "+3802649234",
+      "email": "electr@gmail.com",
+      "website": "https://www.handy.com/services/other-electrical"
+    },
+    {
+      "id": "5",
+      "tag": "gasman",
+      "service_photo_id": "gasman",
+      "photo": "gas_img",
+      "title": "Gasman",
+      "description": "Gasman is your local plumbing, heating and electrical contractor on call 24/7 covering the West of Scotland and the Central Belt. Our engineers are fully qualified, insured and disclosure checked for peace of mind. Our customers satisfaction is our number one priority.",
+      "phone": "+3802345324",
+      "email": "info@gasmanenergy.com",
+      "website": "https://www.gasmanenergy.com/"
+    },
+    {
+      "id": "6",
+      "tag": "courier",
+      "service_photo_id": "delivery_man",
+      "photo": "courier_img",
+      "title": "Courier",
+      "description": "iPOST is Ukrainian innovational courier service that has been operating since 2017. It is based on its own powerful courier online platform that carries out delivery on the principle of crowdsourcing and using its own resource of reliable and responsible couriers.",
+      "phone": "+38 (067) 580 20 30",
+      "email": "info@ipost.ua",
+      "website": "https://ipost.ua/en"
+    }
+  ]
+}
