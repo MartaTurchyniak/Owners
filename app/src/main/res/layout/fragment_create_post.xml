@@ -12,25 +12,34 @@
             android:layout_height="wrap_content"
             tools:context=".presentation.ui.create_post.CreatePostFragment">
 
-        <include layout="@layout/add_photo_view"
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
                 android:id="@+id/ivAdd"
-                android:layout_width="100dp"
-                android:layout_height="150dp"
                 android:layout_margin="10dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@drawable/buble_background" />
 
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/content"
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_marginEnd="24dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toEndOf="@id/ivAdd"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:id="@+id/plus"
+                android:layout_margin="10dp"
+                android:padding="100dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_add_circle_outline"/>
 
-        </androidx.recyclerview.widget.RecyclerView>
+<!--        <include layout="@layout/add_photo_view"-->
+<!--                android:id="@+id/ivAdd"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="220dp"-->
+<!--                android:layout_margin="10dp"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"/>-->
 
         <TextView
                 android:id="@+id/tvTitle"
@@ -41,10 +50,10 @@
                 android:layout_marginTop="24dp"
                 android:text="Title"
                 android:textColor="@color/cardview_dark_background"
-                android:textSize="24dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/content" />
+                app:layout_constraintTop_toBottomOf="@+id/ivAdd" />
 
         <EditText
                 android:id="@+id/etTitle"
@@ -53,6 +62,9 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:focusable="true"
+                android:singleLine="true"
+                android:lines="1"
+                android:backgroundTint="#2337A1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvTitle" />
@@ -66,7 +78,7 @@
                 android:gravity="start"
                 android:text="Description"
                 android:textColor="@color/cardview_dark_background"
-                android:textSize="24dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/etTitle" />
@@ -78,52 +90,27 @@
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
                 android:focusable="true"
+                android:inputType="textMultiLine"
+                android:backgroundTint="#2337A1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvDescription" />
-
-        <TextView
-                android:id="@+id/tvTags"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="8dp"
-                android:gravity="start"
-                android:text="Tags"
-                android:textColor="@color/cardview_dark_background"
-                android:textSize="24dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etDescription" />
-
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvTags"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                tools:listitem="@layout/tag_buble"
-                tools:itemCount="10"
-                app:spanCount="5"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintTop_toBottomOf="@id/tvTags" />
 
         <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginEnd="24dp"
-                android:background="@color/colorPrimary"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/signin_btn_bg"
                 android:text="Post"
+                android:textSize="18sp"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/rvTags"
-                />
+                app:layout_constraintTop_toBottomOf="@id/etDescription"
+                app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
