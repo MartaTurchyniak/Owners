@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.magic.Owners">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:name=".OwnersApplication"
             android:allowBackup="true"
@@ -17,7 +19,7 @@
         <activity android:name=".presentation.ui.profile.ProfileActivity"
                 android:screenOrientation="portrait"
                 android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".presentation.ui.sign_in.SignInActivity" >
+        <activity android:name=".presentation.ui.auth.SignInActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

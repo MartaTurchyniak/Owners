@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Owners</string>
+
+    <string name="general_error">Error</string>
+    <string name="general_error_message">Something went wrong…</string>
 </resources>

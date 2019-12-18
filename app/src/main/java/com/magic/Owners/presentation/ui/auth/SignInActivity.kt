@@ -1,4 +1,4 @@
-package com.magic.Owners.presentation.ui.sign_in
+package com.magic.Owners.presentation.ui.auth
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

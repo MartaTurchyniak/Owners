@@ -1,8 +1,7 @@
-package com.magic.Owners.data.api_calls
+package com.magic.Owners.data.api_calls.mock
 
 import com.magic.Owners.domain.api.GetAllServicesCall
 import com.magic.Owners.domain.models.ServiceList
-import com.magic.Owners.domain.models.Services
 import com.magic.Owners.data.json_parser.JsonParser
 import io.reactivex.Single
 import io.reactivex.schedulers.Schedulers
