@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), CreatePostFragment.OnFragmentInteracti
             val dest: String = try {
                 resources.getResourceName(destination.id)
             } catch (e: ClassNotFoundException) {
-                Integer.toString(destination.id)
+                destination.id.toString()
             }
             Log.d("NavigationActivity", "Navigated to $dest")
         }

@@ -14,8 +14,9 @@
             android:layout_marginEnd="16dp"
             android:layout_marginTop="10dp"
             android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
             tools:listitem="@layout/service_cell"
-            tools:spanCount="4"
+            tools:spanCount="2"
             tools:itemCount="30"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             />

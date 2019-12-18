@@ -3,6 +3,7 @@ package com.magic.Owners
 import android.app.Application
 import com.magic.Owners.data.di.apiCallsModule
 import com.magic.Owners.data.di.networkModule
+import com.magic.Owners.domain.di.repositoryModule
 import com.magic.Owners.domain.di.useCasesModule
 import com.magic.Owners.presentation.di.presentationModule
 import org.koin.android.ext.koin.androidContext
@@ -22,7 +23,8 @@ class OwnersApplication : Application(){
             modules(arrayListOf(networkModule,
                 apiCallsModule,
                 presentationModule,
-                useCasesModule
+                useCasesModule,
+                repositoryModule
                 )
             )
         }
