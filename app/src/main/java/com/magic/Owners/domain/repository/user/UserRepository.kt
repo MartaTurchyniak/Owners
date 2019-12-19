@@ -12,4 +12,5 @@ interface UserRepository{
     fun saveName(name:String)
     fun savePhotoUrl(url: String)
     fun savePhone(phone: String)
+    fun saveEmail(email: String)
 }

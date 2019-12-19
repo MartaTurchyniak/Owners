@@ -10,11 +10,11 @@ data class User (
     @SerializedName("id")
     val id: String,
     @SerializedName("email")
-    var email: String,
+    var email: String?,
     @SerializedName("name")
-    var name: String,
+    var name: String?,
     @SerializedName("phone")
-    var phone: String,
+    var phone: String?,
     @SerializedName("photoUrl")
     var photoUrl: String?,
     @SerializedName("createdAt")

@@ -31,25 +31,43 @@ class CreatePostFragment : ViewModelFragment<CreatePostViewModel>(){
 
     override fun setupUI() {
         super.setupUI()
+        initPostBtn(true)
         ivAdd.setOnClickListener {
             takeGalleryPicture()
         }
         addPost.setOnClickListener {
-            photoFile?.let { file ->
-                createPostViewModel.createPost(file,
-                    etTitle.text.toString(),
-                    etDescription.text.toString())
+            if(photoFile != null && etTitle.text.isNotEmpty()){
+                initPostBtn(false)
+                photoFile?.let {
+                    createPostViewModel.createPost(
+                        it,
+                        etTitle.text.toString(),
+                        etDescription.text.toString()
+                    )
+                }
             }
         }
     }
 
+    fun initPostBtn(isEnabled: Boolean){
+        addPost.isEnabled = isEnabled
+        if(isEnabled) {
+            addPost.setBackgroundDrawable(resources.getDrawable(R.drawable.signin_btn_bg))
+            addPost.text = "Post"
+        } else{
+            addPost.setBackgroundDrawable(resources.getDrawable(R.drawable.add_post_btn_dis))
+            addPost.text = "Posting..."
+        }
+    }
     override fun bindViewModel() {
         super.bindViewModel()
         createPostViewModel.liveData().observe( this, Observer {
             if(it.status == Status.SUCCESS){
                 addPost.findNavController().navigate(R.id.feedFragment)
+                initPostBtn(true)
             } else if(it.status == Status.ERROR) {
                 showError(it.message)
+                initPostBtn(true)
             }
         })
     }
@@ -81,7 +99,8 @@ class CreatePostFragment : ViewModelFragment<CreatePostViewModel>(){
 
     fun onGalleryPictureTaken(takenPicture: File) {
         plus.visibility = View.GONE
-        Picasso.get().load(takenPicture).placeholder(R.drawable.buble_background).into(ivAdd)
+        Picasso.get().load(takenPicture).placeholder(R.drawable.buble_background).fit()
+            .into(ivAdd)
         photoFile = takenPicture
     }
 

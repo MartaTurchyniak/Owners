@@ -15,10 +15,18 @@ import de.hdodenhof.circleimageview.CircleImageView
  * Created by Marta Turchyniak on 2019-11-24.
  */
 const val BASE_URL = "https://sometext.xyz/"
-class FeedAdapter(private val list: ArrayList<FeedResponse>): RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
+
+class FeedAdapter(private val list: List<FeedResponse>) :
+    RecyclerView.Adapter<FeedAdapter.FeedViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedViewHolder {
-        return FeedViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.feed_cell, parent, false))
+        return FeedViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.feed_cell,
+                parent,
+                false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
@@ -26,15 +34,22 @@ class FeedAdapter(private val list: ArrayList<FeedResponse>): RecyclerView.Adapt
     }
 
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
-        Picasso.get().load(BASE_URL + list[position].userPhotoUrl).into(holder.avatar)
-        holder.nickname.text = list[position].userName
-        Picasso.get().load(BASE_URL + list[position].photoUrl).into(holder.contentPhoto)
-        holder.tvTitle.text = list[position].title
-        holder.tvDescription.text = list[position].description
+        list[position].userPhotoUrl?.let {
+            Picasso.get().load(BASE_URL + list[position].userPhotoUrl)
+                .placeholder(R.drawable.placeholder).into(holder.avatar)
+        }
+        holder.nickname.text = list[position].userName?.replace('"'.toString(), "")?.replace("\\", "")
+        list[position].photoUrl?.let {
+        Picasso.get().load(BASE_URL + list[position].photoUrl)
+            .placeholder(R.drawable.progress_animation).into(holder.contentPhoto)
+        }
+        holder.tvTitle.text = list[position].title?.replace('"'.toString(), "")?.replace("\\", "")
+        holder.tvDescription.text =
+            list[position].description.replace('"'.toString(), "").replace("\\", "")
     }
 
 
-    inner class FeedViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    inner class FeedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val avatar = itemView.findViewById<CircleImageView>(R.id.profile_image)
         val nickname = itemView.findViewById<TextView>(R.id.nickname)
         val contentPhoto = itemView.findViewById<ImageView>(R.id.content)

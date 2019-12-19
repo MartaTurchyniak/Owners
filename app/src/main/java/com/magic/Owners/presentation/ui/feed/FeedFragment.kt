@@ -29,7 +29,8 @@ class FeedFragment : ViewModelFragment<FeedViewModel>() {
         feedViewModel.getFeed()
         feedViewModel.feed().observe(this, Observer {
             if(it.status == Status.SUCCESS){
-                val adapter = it.data?.let { list -> FeedAdapter(list) }
+                val newList = it.data?.asReversed()?.toList()
+                val adapter = newList?.let { list -> FeedAdapter(list) }
                 rvFeed.adapter = adapter
             } else if(it.status == Status.ERROR){
                 showError(it.message)
