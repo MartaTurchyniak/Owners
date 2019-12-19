@@ -8,19 +8,19 @@ import java.io.Serializable
  */
 data class FeedResponse (
     @SerializedName("_id")
-    val id: String,
+    val id: String?,
     @SerializedName("createdAt")
-    val createdAt: String,
+    val createdAt: String?,
     @SerializedName("userId")
-    val userId: String,
+    val userId: String?,
     @SerializedName("photoUrl")
-    val photoUrl: String,
+    val photoUrl: String?,
     @SerializedName("title")
-    val title: String,
+    val title: String?,
     @SerializedName("description")
     val description: String,
     @SerializedName("userPhotoUrl")
-    val userPhotoUrl: String,
+    val userPhotoUrl: String?,
     @SerializedName("userName")
-    val userName: String
+    val userName: String?
 ): Serializable

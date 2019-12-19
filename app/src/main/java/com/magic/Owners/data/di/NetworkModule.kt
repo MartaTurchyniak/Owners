@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder
 import com.magic.Owners.data.api_clients.AuthClient
 import com.magic.Owners.data.api_clients.CreatePostApiClient
 import com.magic.Owners.data.api_clients.FeedClient
+import com.magic.Owners.data.api_clients.UserApiClient
 import com.magic.Owners.data.interceptors.HeadersInterceptor
 import com.magic.Owners.data.interceptors.headers.HeaderStorage
 import com.magic.Owners.data.interceptors.headers.SimpleHeaderStorage
@@ -31,6 +32,7 @@ val networkModule = module {
     single { provideGson() }
     single { provideAuthClient(get()) }
     single { provideFeedClient(get()) }
+    single { provideUserClient(get()) }
 }
 
 fun provideDefaultOkhttpClient(headerStorage: HeaderStorage): OkHttpClient {
@@ -68,3 +70,6 @@ fun provideAuthClient(retrofit: Retrofit): AuthClient =
 
 fun provideFeedClient(retrofit: Retrofit): FeedClient =
     retrofit.create(FeedClient::class.java)
+
+fun provideUserClient(retrofit: Retrofit): UserApiClient =
+    retrofit.create(UserApiClient::class.java)

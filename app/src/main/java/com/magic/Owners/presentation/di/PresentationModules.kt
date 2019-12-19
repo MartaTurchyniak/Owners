@@ -2,10 +2,12 @@ package com.magic.Owners.presentation.di
 
 import com.magic.Owners.domain.use_cases.AuthUseCase
 import com.magic.Owners.domain.use_cases.SimpleGetAllServicesUseCase
+import com.magic.Owners.domain.use_cases.UserUseCase
 import com.magic.Owners.presentation.ui.auth.signin.SignInViewModel
 import com.magic.Owners.presentation.ui.auth.signup.SignUpViewModel
 import com.magic.Owners.presentation.ui.create_post.CreatePostViewModel
 import com.magic.Owners.presentation.ui.feed.FeedViewModel
+import com.magic.Owners.presentation.ui.profile.ProfileViewModel
 import com.magic.Owners.presentation.ui.services.ServicesViewModel
 import com.magic.Owners.presentation.util.CacheStorageImpl
 import com.magic.Owners.presentation.util.CasheStorage
@@ -23,6 +25,7 @@ val presentationModule = module{
    viewModel { SignUpViewModel(AuthUseCase(get(), get(), get())) }
    viewModel { CreatePostViewModel(get()) }
    viewModel { FeedViewModel(get()) }
+   viewModel { ProfileViewModel(get(), get()) }
    single { GalleryPictureResolver(get()) }
    single { CacheStorageImpl(get()) as CasheStorage }
 }

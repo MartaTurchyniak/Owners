@@ -51,5 +51,9 @@ class OwnersUserRepository(val context: Context): UserRepository {
         saveUser(user)
     }
 
-
+    override fun saveEmail(email: String) {
+        val user: User = getUser()
+        user.email = email
+        saveUser(user)
+    }
 }
