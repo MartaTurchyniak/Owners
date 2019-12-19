@@ -1,4 +1,4 @@
-package com.magic.Owners.domain.use_cases.impl
+package com.magic.Owners.domain.use_cases
 
 import com.magic.Owners.domain.api.AuthCall
 import com.magic.Owners.domain.models.auth.SignInResponse

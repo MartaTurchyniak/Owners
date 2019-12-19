@@ -40,16 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addProfilePicture" />
 
-    <ImageView
-            android:id="@+id/ivEditMail"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="24dp"
-            android:src="@drawable/ic_edit_black_24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/addProfilePicture" />
-
     <TextView
             android:id="@+id/tvEmailTitle"
             android:layout_width="wrap_content"
@@ -136,6 +126,18 @@
             app:layout_constraintStart_toEndOf="@id/ivPhone"
             app:layout_constraintTop_toBottomOf="@id/ivName"
             android:text="Phone"/>
+
+
+    <ImageView
+            android:id="@+id/ivEditPhone"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_edit_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivName" />
+
 
     <TextView
             android:id="@+id/tvPhoneDescription"

@@ -2,7 +2,7 @@ package com.magic.Owners.presentation.ui.services
 
 import androidx.lifecycle.MutableLiveData
 import com.magic.Owners.domain.models.ServiceList
-import com.magic.Owners.domain.use_cases.impl.SimpleGetAllServicesUseCase
+import com.magic.Owners.domain.use_cases.SimpleGetAllServicesUseCase
 import com.magic.Owners.presentation.ui.main.DisposableViewModel
 import com.magic.Owners.presentation.ui.main.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers

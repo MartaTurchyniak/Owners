@@ -2,6 +2,7 @@ package com.magic.Owners.data.interceptors
 
 import com.magic.Owners.data.interceptors.headers.HeaderStorage
 import okhttp3.Headers
+import okhttp3.Headers.Companion.toHeaders
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response
@@ -22,13 +23,13 @@ class HeadersInterceptor(private val headersStorage: HeaderStorage) : Intercepto
     }
 
     private fun getHeadersForRequest(request: Request): Headers {
-        return Headers.of(headersStorage.apiHeaders(headersToMap(request.headers())))
+        return headersStorage.apiHeaders(headersToMap(request.headers)).toHeaders()
     }
 
     private fun headersToMap(headers: Headers): Map<String, String> {
         val headersMap = LinkedHashMap<String, String>()
 
-        for (i in 0 until headers.size()) {
+        for (i in 0 until headers.size) {
             headersMap[headers.name(i)] = headers.value(i)
         }
 

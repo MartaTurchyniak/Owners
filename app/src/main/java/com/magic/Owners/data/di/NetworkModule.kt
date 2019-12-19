@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.magic.Owners.data.api_clients.AuthClient
 import com.magic.Owners.data.api_clients.CreatePostApiClient
+import com.magic.Owners.data.api_clients.FeedClient
 import com.magic.Owners.data.interceptors.HeadersInterceptor
 import com.magic.Owners.data.interceptors.headers.HeaderStorage
 import com.magic.Owners.data.interceptors.headers.SimpleHeaderStorage
@@ -14,6 +15,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 
 /**
@@ -28,6 +30,7 @@ val networkModule = module {
     single { provideCreatePostApiClient(get()) }
     single { provideGson() }
     single { provideAuthClient(get()) }
+    single { provideFeedClient(get()) }
 }
 
 fun provideDefaultOkhttpClient(headerStorage: HeaderStorage): OkHttpClient {
@@ -35,6 +38,9 @@ fun provideDefaultOkhttpClient(headerStorage: HeaderStorage): OkHttpClient {
     logging.level = HttpLoggingInterceptor.Level.BODY
     return OkHttpClient.Builder()
         .addInterceptor(logging)
+        .readTimeout(1, TimeUnit.MINUTES)
+        .writeTimeout(1, TimeUnit.MINUTES)
+        .connectTimeout(1, TimeUnit.MINUTES)
         .addInterceptor(HeadersInterceptor(headerStorage))
         .build()
 }
@@ -59,3 +65,6 @@ fun provideCreatePostApiClient(retrofit: Retrofit): CreatePostApiClient =
 
 fun provideAuthClient(retrofit: Retrofit): AuthClient =
     retrofit.create(AuthClient::class.java)
+
+fun provideFeedClient(retrofit: Retrofit): FeedClient =
+    retrofit.create(FeedClient::class.java)
