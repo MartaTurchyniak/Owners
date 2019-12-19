@@ -1,10 +1,8 @@
 package com.magic.Owners.presentation.ui.auth.signin
 
 import androidx.lifecycle.MutableLiveData
-import com.magic.Owners.domain.models.ServiceList
 import com.magic.Owners.domain.models.auth.SignInResponse
-import com.magic.Owners.domain.repository.token.TokenRepository
-import com.magic.Owners.domain.use_cases.impl.AuthUseCase
+import com.magic.Owners.domain.use_cases.AuthUseCase
 import com.magic.Owners.presentation.ui.main.DisposableViewModel
 import com.magic.Owners.presentation.ui.main.Resource
 import io.reactivex.android.schedulers.AndroidSchedulers
