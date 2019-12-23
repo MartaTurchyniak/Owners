@@ -19,9 +19,10 @@ class UserUseCase(private val userCall: UserCall,
         phone: String,
         image: File
     ): Single<User> {
-        return userCall.updateUserData(token.getToken(), name, phone, image).flatMap {
-            saveData(it)
-        }
+        return userCall.updateUserData(token.getToken(), name, phone, image)
+//            .flatMap {
+//            saveData(it)
+//        }
     }
 
     fun getUserData(): Single<User> {
