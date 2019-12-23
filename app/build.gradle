@@ -47,6 +47,8 @@ dependencies {
 
     //ui
     implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation 'pub.devrel:easypermissions:3.0.0'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 
     // Koin for Android
     implementation 'org.koin:koin-android:2.0.1'
@@ -59,7 +61,8 @@ dependencies {
     api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     api 'com.squareup.retrofit2:converter-gson:2.4.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+    implementation("com.squareup.okhttp3:logging-interceptor:4.0.0-RC1")
 
     //navigation
     def nav_version = "2.1.0"

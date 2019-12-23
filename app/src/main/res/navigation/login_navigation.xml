@@ -5,7 +5,7 @@
         app:startDestination="@id/signInFragment">
     <fragment
             android:id="@+id/signInFragment"
-            android:name="com.magic.Owners.presentation.ui.sign_in.SignInFragment"
+            android:name="com.magic.Owners.presentation.ui.auth.signin.SignInFragment"
             android:label="SignInFragment">
         <action
                 android:id="@+id/action_signInFragment_to_nav_graph"
@@ -16,4 +16,8 @@
             android:id="@+id/mainActivity"
             android:name="com.magic.Owners.presentation.ui.MainActivity"
             android:label="MainActivity" />
+
+    <fragment  android:id="@+id/signUpFragment"
+            android:name="com.magic.Owners.presentation.ui.auth.signup.SignUpFragment"
+            android:label="SignUpFragment"/>
 </navigation>

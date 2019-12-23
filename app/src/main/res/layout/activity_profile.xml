@@ -40,16 +40,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/addProfilePicture" />
 
-    <ImageView
-            android:id="@+id/ivEditMail"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="24dp"
-            android:src="@drawable/ic_edit_black_24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/addProfilePicture" />
-
     <TextView
             android:id="@+id/tvEmailTitle"
             android:layout_width="wrap_content"
@@ -91,7 +81,7 @@
             android:layout_marginEnd="24dp"
             android:src="@drawable/ic_edit_black_24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivEmail"/>
+            app:layout_constraintTop_toBottomOf="@id/ivEmail" />
 
     <TextView
             android:id="@+id/tvNameTitle"
@@ -109,7 +99,9 @@
             android:layout_height="wrap_content"
             android:textStyle="italic"
             android:layout_marginStart="10dp"
-            android:inputType="none"
+            android:inputType="text"
+            android:singleLine="true"
+            android:lines="1"
             android:textSize="13sp"
             android:background="@android:color/transparent"
             android:text="Marta Turchyniak"
@@ -137,13 +129,31 @@
             app:layout_constraintTop_toBottomOf="@id/ivName"
             android:text="Phone"/>
 
-    <TextView
+
+    <ImageView
+            android:id="@+id/ivEditPhone"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/ic_edit_black_24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivName" />
+
+
+    <EditText
             android:id="@+id/tvPhoneDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="italic"
             android:layout_marginStart="10dp"
-            android:text="+380964267479"
+            android:inputType="phone"
+            android:singleLine="true"
+            android:lines="1"
+            android:textSize="13sp"
+            android:background="@android:color/transparent"
+            tools:text="+380964267479"
+            android:enabled="false"
             app:layout_constraintTop_toBottomOf="@id/tvPhoneTitle"
             app:layout_constraintStart_toEndOf="@id/ivPhone"/>
 

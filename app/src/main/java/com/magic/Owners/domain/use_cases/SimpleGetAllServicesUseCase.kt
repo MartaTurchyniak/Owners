@@ -1,4 +1,4 @@
-package com.magic.Owners.domain.use_cases.impl
+package com.magic.Owners.domain.use_cases
 
 import com.magic.Owners.domain.api.GetAllServicesCall
 import com.magic.Owners.domain.models.ServiceList

@@ -1,82 +1,111 @@
 package com.magic.Owners.presentation.ui.create_post
 
-import android.content.Context
+import android.content.Intent
 import android.net.Uri
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import com.magic.Owners.R
+import com.magic.Owners.presentation.ui.main.Status
+import com.magic.Owners.presentation.ui.main.ViewModelFragment
+import com.magic.Owners.presentation.util.GalleryPictureResolver
+import com.magic.Owners.presentation.util.Permissions
+import com.magic.Owners.presentation.util.permissionsGranted
+import com.magic.Owners.presentation.util.requestPermissions
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_create_post.*
+import org.koin.android.ext.android.inject
+import org.koin.android.viewmodel.ext.android.viewModel
+import pub.devrel.easypermissions.AfterPermissionGranted
+import java.io.File
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-class CreatePostFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-    private var listener: OnFragmentInteractionListener? = null
+class CreatePostFragment : ViewModelFragment<CreatePostViewModel>(){
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val createPostViewModel: CreatePostViewModel by viewModel()
+    private val galleryResolver: GalleryPictureResolver by inject()
+    private var photoFile: File? = null
+
+    override fun getLayoutID(): Int {
+        return R.layout.fragment_create_post
+    }
+
+    override fun setupUI() {
+        super.setupUI()
+        initPostBtn(true)
+        ivAdd.setOnClickListener {
+            takeGalleryPicture()
         }
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_post, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        val tags : ArrayList<String> = arrayListOf("house", "my flat", "services", "parking", "noise", "repairs", "bills")
-        rvTags.layoutManager = GridLayoutManager(this.context, 3)
-        rvTags.adapter = TagsAdapter(tags)
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    fun onButtonPressed(uri: Uri) {
-        listener?.onFragmentInteraction(uri)
-    }
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        if (context is OnFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context.toString() + " must implement OnFragmentInteractionListener")
-        }
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        listener = null
-    }
-
-    interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CreatePostFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        addPost.setOnClickListener {
+            if(photoFile != null && etTitle.text.isNotEmpty()){
+                initPostBtn(false)
+                photoFile?.let {
+                    createPostViewModel.createPost(
+                        it,
+                        etTitle.text.toString(),
+                        etDescription.text.toString()
+                    )
                 }
             }
+        }
+    }
+
+    fun initPostBtn(isEnabled: Boolean){
+        addPost.isEnabled = isEnabled
+        if(isEnabled) {
+            addPost.setBackgroundDrawable(resources.getDrawable(R.drawable.signin_btn_bg))
+            addPost.text = "Post"
+        } else{
+            addPost.setBackgroundDrawable(resources.getDrawable(R.drawable.add_post_btn_dis))
+            addPost.text = "Posting..."
+        }
+    }
+    override fun bindViewModel() {
+        super.bindViewModel()
+        createPostViewModel.liveData().observe( this, Observer {
+            if(it.status == Status.SUCCESS){
+                addPost.findNavController().navigate(R.id.feedFragment)
+                initPostBtn(true)
+            } else if(it.status == Status.ERROR) {
+                showError(it.message)
+                initPostBtn(true)
+            }
+        })
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        context?.let {
+        when {
+            galleryResolver.handleActivityResult(it, requestCode, resultCode, data) ->
+                galleryResolver.takenPicture()?.let {picture -> onGalleryPictureTaken(picture) }
+            else -> super.onActivityResult(requestCode, resultCode, data)
+        }
+        }
+    }
+
+    @AfterPermissionGranted(Permissions.REQUEST_CODE_STORAGE)
+    private fun takeGalleryPicture() {
+        activity?.let {
+            if (it.permissionsGranted(Permissions.PERMISSIONS_STORAGE)) {
+                galleryResolver.takePicture(this)
+            } else {
+                requestPermissions(
+                    Permissions.PERMISSIONS_STORAGE,
+                    Permissions.REQUEST_CODE_STORAGE,
+                    getString(R.string.general_storage_rationale)
+                )
+            }
+        }
+    }
+
+    fun onGalleryPictureTaken(takenPicture: File) {
+        plus.visibility = View.GONE
+        Picasso.get().load(takenPicture).placeholder(R.drawable.buble_background).fit()
+            .into(ivAdd)
+        photoFile = takenPicture
+    }
+
+
+    interface OnFragmentInteractionListener {
+        fun onFragmentInteraction(uri: Uri)
     }
 }
